@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+	{% block body_block %}
+
+		<div class="row" id="main-content">
+			<div class="span4" id="sidebar">
+					<blockquote>
+						<p>Don't forget to take a test today. More tests are coming soon, to test your intelligence level!!!</p>
+						<small>IQ Test</small>
+					</blockquote>
+					<div class="well">
+						<blockquote>
+						<h9 class="footer" text-align="center">The intelligence test is a group of different questions, whose purpose is to determine the level of intelligence of the tested person.
+							The average IQ is 100. Have you ever wondered what is your IQ? Take our IQ test and find out what is your level of intelligence right now!
+							Completing the test is absolutely free.</h9>
+						<small>IQ Test</small>
+					</blockquote>
+						<div class="jumbotron">
+						    <h3>Select from the Test below</h3>
+						    <br><div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="/iq_app/iq_test/" role="button" data-toggle="modal">Intelligence Quotient Test</a> 
+						    </div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Personality Test</a></div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Psychometric Test</a></div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Motivation Test</a></div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Depression Test</a></div>
+						    <br>
+						    <br>
+						</div>
+					</div>
+			</div>
+
+			<div class="span8" id="content">
+				<nav class="navbar">
+					<div class="navbar-inner">
+						<div>
+							{% if user.is_authenticated %}
+								<p align="right">Welcome {{user.username}} you have Logged in &nbsp; &nbsp;&nbsp; <!-- <a href="/iq_app/scores">Your scores</a>&nbsp;&nbsp; &nbsp;  --><a href="/iq_app/logout">Logout</a></p>
+							{% endif %}
+
+						</div>
+					</div>
+				</nav>
+				<div class="well">
+					<p>Intelligence tests come in many forms, and some tests use a single type of item or question. Most tests yield both an overall score and individual subtest scores. Regardless of design, all IQ tests attempt to measure the same general intelligence. Component tests are generally designed and selected because they are found to be predictive of later intellectual development, such as educational achievement. IQ also correlates with job performance, socioeconomic advancement, and "social pathologies".</p>
+					<br><br>
+					<div style="vertical-align:middle; text-align:center"><img src="{% static 'images/iq_image.jpg' %}" class="img-circle" alt="iq image" width="300" height="300" align="middle">
+					</div><br>
+					<div style="text-align:center"><h4><font color="#993300">{{user.username}}, your IQ Test score is {{iq}}, {{iq_range}} Goodluck!</font></h4></div>
+					<br><br>
+					<div><p>"A person's Intelligence Quotient (IQ) is, arguably, one of their most important characteristics. It is believed that you can predict a person's behavior more accurately from their IQ than from any other single piece of information about them." ...BBC</p>
+					</div>
+					<div><p>I would say that IQ is the strongest predictor of which field you can get into and hold a job in, whether you can be an accountant, lawyer or nurse, for example.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% endblock %}

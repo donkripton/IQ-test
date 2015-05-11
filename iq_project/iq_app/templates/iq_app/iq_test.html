@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+	{% block body_block %}
+
+	<div class="row" id="main-content">
+			<div class="span4" id="sidebar">
+					<blockquote>
+						<p>Don't forget to take a test today. More tests are coming soon, to test your intelligence level!!!</p>
+						<small>IQ Test</small>
+					</blockquote>
+					<div class="well">
+						<blockquote>
+						<h9 class="footer" text-align="center">The intelligence test is a group of different questions, whose purpose is to determine the level of intelligence of the tested person.
+							The average IQ is 100. Have you ever wondered what is your IQ? Take our IQ test and find out what is your level of intelligence right now!
+							Completing the test is absolutely free.</h9>
+						<small>IQ Test</small>
+					</blockquote>
+						<div class="jumbotron">
+						    <h3>Select from the Test below</h3>
+						    <br><div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="/iq_app/iq_test/" role="button" data-toggle="modal">Intelligence Quotient Test</a> 
+						    </div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Personality Test</a></div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Psychometric Test</a></div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Motivation Test</a></div>
+						    <br>
+						    <br>
+						    <div class="span3">
+						    <a class="btn btn-medium btn-block btn-primary" type="button" href="" role="button" data-toggle="modal">Depression Test</a></div>
+						    <br>
+						    <br>
+						</div>
+					</div>
+			</div>
+
+			<div class="span8" id="content">
+				<nav class="navbar">
+					<div class="navbar-inner">
+						<div>
+							{% if user.is_authenticated %}
+								<p align="right">Welcome {{user.username}} you have Logged in <!-- &nbsp; &nbsp;&nbsp; <a href="/iq_app/scores">Your scores</a> -->&nbsp;&nbsp; &nbsp; <a href="/iq_app/logout">Logout</a></p>
+							{% endif %}
+
+						</div>
+					</div>
+				</nav>
+				<div class="well">
+					<form action="/iq_app/result_check/" method="POST" id="main_content" name="main_content" id="form1" runat="server">
+						<div class="row">
+							<div class="span5">
+							</div>
+							<div class="span2">
+							<!-- <p>Example 2 (show only min and sec)</p> -->
+	<!-- =========================================================== -->
+							<script type="application/javascript">
+							var myCountdown2 = new Countdown({
+																time: 600, 
+																width:150, 
+																height:80, 
+																rangeHi:"minute"	// <- no comma on last item!
+																});
+
+							</script>
+							</div>
+						</div><br><br>
+						
+						{% csrf_token %}
+						<ol id="testdiv">{% for i in question%}
+							<li>{{i.question}}<br>
+								<input type="radio" value="{{i.option1}}" name="{{i.uuid}}">&nbsp;{{i.option1}}<br>
+								<input type="radio" value="{{i.option2}}" name="{{i.uuid}}">&nbsp;{{i.option2}}<br>
+								<input type="radio" value="{{i.option3}}" name="{{i.uuid}}">&nbsp;{{i.option3}}<br>
+								<input type="radio" value="{{i.option4}}" name="{{i.uuid}}">&nbsp;{{i.option4}}<br><br><br>
+							</li>
+							{% endfor %}</ol>
+					    <br><br>
+					    <center><input type="submit" class="btn btn-info btn-large" value="Show my IQ score"></center>
+					  </form>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		$(function() {
+		setTimeout(function() { $("#testdiv").fadeOut('fast'); }, 600000)})
+		</script>
+
+	{% endblock %}

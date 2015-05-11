@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head runat="server">
+		<meta charset="utf-8">
+		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+		<title>Intelligence Quotient</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'js/bootstrap.min.js' %}">
+		<link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css" media="screen" />
+		<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/counter/countdown.js' %}"></script>
+		<style>
+		  body {background-color:white}
+		</style>
+	</head>
+	<body onload="f1()">
+		<div class="container">
+
+			<header class="row">
+				<div class="span12">
+					<nav class="navbar">
+						<div class="navbar-inner">
+							<a href="/iq_app/" class="brand"><img src="{% static 'images/iq.jpg' %}" style="width:85px;height:45px"></a>
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</a>
+							<div class="nav-collapse collapse">
+								<ul class="nav">
+								{% if user.is_authenticated %}
+									<li><a href="/iq_app/home">Home</a></li>
+										{% else %}
+									<li><a href="/iq_app/">Home</a></li>
+								{% endif %}
+									<!-- <li class="divider-vertical"></li> -->
+									<!-- <li><a href="/iq_app/">Home</a></li> -->
+									<!-- <li><a href="#news">Take a Test</a></li> -->
+									<!-- <li class="divider-vertical"></li> -->
+									<li><a href="#contact">About IQ</a></li>
+									<!-- <li class="divider-vertical"></li> -->
+									<li><a href="#contact">Genius IQs</a></li>
+									<!-- <li class="divider-vertical"></li> -->
+									<li><a href="#contact">History</a></li>
+									<!-- <li class="divider-vertical"></li> -->
+									<li class ="last"><a href="#about">About Us</a></li>
+								</ul>
+							</div>
+
+						</div>
+
+					</nav>
+
+				</div>
+			</header><!-- end of Header-->
+
+			{% block body_block %}
+
+
+			{% endblock %}
+
+
+			<footer class="row">
+				<div class="span12">
+					<nav class="navbar">
+						<div class="navbar-inner" style="background:; color:white; height: 150px">
+							<small><center><p class="footer">All texts and pictures published in <em>IQ-Test</em> are the property of <em>CTI</em> and are protected by the "Copyright Law and their related rights".
+							The use and publication of part or all contents of the site without the authorization of <em>CTI</em> is prohibited.</p></center></small>
+						</div>
+					</nav>
+				</div>
+			</footer>
+
+		</div><!--end of container-->
+
+
+
+
+
+
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	</body>
+</html>

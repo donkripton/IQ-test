@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+	{% block body_block %}
+
+
+			<div class="row" id="main-content">
+				<div class="span4" id="sidebar">
+					<blockquote>
+						<p>Don't forget to take a test today. More tests are coming soon, to test your intelligence level!!!</p>
+						<small>IQ Test</small>
+					</blockquote>
+					<div class="well">
+						
+						<form>
+							
+							<fieldset>
+								
+								<div class="pull-left">
+									<a class="btn btn-info btn-large" href="/iq_app/login/" role="button" data-toggle="modal">Sign in</a>
+								</div>
+								<div class="pull-right">
+									<a class="btn btn-info btn-large" href="/iq_app/signup/" role="button" data-toggle="modal">Registration</a> 
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="accordion" id="questions">
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle btn" data-toggle="collapse" data-parent="#questions" href="#Tips">Tips</a>
+							</div>
+							<div id="Tips" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<h5>This might be the best IQ test. All questions are refined by the creator who carefully selected 20 questions.</h5>
+
+									<h5>It's hard to academically define Intelligence Quotient so please do NOT compare the result with results of other online IQ tests. Normally you'll get a lower score since this test is NOT easy!</h5>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle btn" data-toggle="collapse" data-parent="#questions" href="#how">How to Play</a>
+							</div>
+							<div id="how" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p>MEEEEEEEEEE</p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle btn" data-toggle="collapse" data-parent="#questions" href="#guide">IQ Test Score Guide</a>
+							</div>
+							<div id="guide" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p>MEEEEEEEEEE</p>
+								</div>
+							</div>
+						</div><div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle btn" data-toggle="collapse" data-parent="#questions" href="#story">Success Stories</a>
+							</div>
+							<div id="story" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p.>" Since I started with IQ Test, I can remember names of new acquaintances much better! "<br>
+									</p>
+									<p.>" Since I started training my reactions,I noticed I react way more quickly when driving in busy traffic"</p>
+									<p.>" I can multi-task much more easily at work, I stay focused and shift from one task to another more quickly."</p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="span8">
+					<div id="header">
+						<h2>Welcome to the IQ Test!</h2>
+					</div>
+					<div id="slider" class="carousel slide">
+						<div class="carousel-inner">
+							<div class="item active">
+								<img src="{% static 'images/a-brain.jpg' %}" alt="brain" style="width:850px;height:450px">
+
+							</div>
+							<div class="item">
+								<img src="{% static 'images/bg_black.jpg' %}" alt="brain" style="width:850px;height:450px">
+								
+							</div>
+							<div class="item">
+								<img src="{% static 'images/daily_IQtest.jpg' %}" alt="brain" style="width:850px;height:450px">
+								
+							</div>
+							<div class="item">
+								<img src="{% static 'images/iq-bell-curve.jpg' %}" alt="brain" style="width:850px;height:450px">
+								
+							</div>
+							<div class="item">
+								<img src="{% static 'images/og-image-iq-test-en.jpg' %}" alt="brain" style="width:850px;height:450px">
+								
+							</div>
+						</div>
+						<a class="left carousel-control" href="#slider" data-slide="prev">&lsaquo;</a>
+						<a class="right carousel-control" href="#slider" data-slide="next">&rsaquo;</a>
+					</div>
+				</div>
+
+			</div>
+			
+{% endblock %}
